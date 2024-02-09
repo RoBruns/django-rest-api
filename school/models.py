@@ -15,7 +15,7 @@ class Student(models.Model):
 class Course(models.Model):
     LEVELS = (
         ('B', 'Basic'),
-        ('I', 'Intermediate'),
+        ('I', 'Intermediat'),
         ('A', 'Advanced'),
     )
 
@@ -30,3 +30,5 @@ class Course(models.Model):
 
     def __str__(self):
         return self.description
+    
+
