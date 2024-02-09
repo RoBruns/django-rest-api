@@ -6,4 +6,3 @@ def students(request):
         student = {'id': 1, 'name': 'Rodrigo', 'age': 20}
 
         return JsonResponse(student)
-
