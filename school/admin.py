@@ -28,4 +28,3 @@ class RegistrationAdmin(admin.ModelAdmin):
 admin.site.register(Student, StudentsAdmin)
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Registration, RegistrationAdmin)
-

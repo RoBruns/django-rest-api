@@ -19,3 +19,10 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
         exclude = []
+
+
+class ListRegistrationStudentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Registration
+        fields = ['course', 'period']
+        depth = 1
