@@ -1,3 +1,4 @@
+# Flake8: noqa
 """setup URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -14,8 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from rest_framework import routers
+
+from school.views import CourseViewSet, StudentViewSet
+
+router = routers.DefaultRouter()
+router.register(r'courses', CourseViewSet, basename='Course')
+router.register(r'students', StudentViewSet, basename='Student')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('students/', StudentViewSet.as_view({'get': 'list', 'post': 'create'})),
+    path('students/<int:pk>/', StudentViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+    path('courses/', CourseViewSet.as_view({'get': 'list', 'post': 'create'})),
+    path('courses/<int:pk>/', CourseViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
 ]
