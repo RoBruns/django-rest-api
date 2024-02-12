@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Student
+from .models import Course, Registration, Student
 
 
 # Register your models here.
@@ -18,5 +18,13 @@ class CourseAdmin(admin.ModelAdmin):
     list_per_page = 20
 
 
+class RegistrationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'student', 'course', 'registration_date', 'period')
+    list_display_links = ('id', 'student')
+    search_fields = ('student',)
+    list_per_page = 20
+
+
 admin.site.register(Student, StudentsAdmin)
 admin.site.register(Course, CourseAdmin)
+admin.site.register(Registration, RegistrationAdmin)

@@ -27,8 +27,4 @@ router.register(r'students', StudentViewSet, basename='Student')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('students/', StudentViewSet.as_view({'get': 'list', 'post': 'create'})),
-    path('students/<int:pk>/', StudentViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
-    path('courses/', CourseViewSet.as_view({'get': 'list', 'post': 'create'})),
-    path('courses/<int:pk>/', CourseViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
 ]
