@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Course, Student
+from .models import Course, Registration, Student
 
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -13,3 +13,9 @@ class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = '__all__'
+
+
+class RegistrationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Registration
+        exclude = []

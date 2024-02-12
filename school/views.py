@@ -1,7 +1,8 @@
 from rest_framework import viewsets
 
-from .models import Course, Student
-from .serializer import CourseSerializer, StudentSerializer
+from .models import Course, Registration, Student
+from .serializer import (CourseSerializer, RegistrationSerializer,
+                         StudentSerializer)
 
 
 class StudentViewSet(viewsets.ModelViewSet):
@@ -18,3 +19,11 @@ class CourseViewSet(viewsets.ModelViewSet):
     """
     queryset = Course.objects.all().order_by('id')
     serializer_class = CourseSerializer
+
+
+class RegistrationViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows registrations to be viewed or edited.
+    """
+    queryset = Registration.objects.all().order_by('id')
+    serializer_class = RegistrationSerializer
