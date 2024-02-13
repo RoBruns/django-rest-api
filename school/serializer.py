@@ -31,4 +31,11 @@ class ListRegistrationStudentsSerializer(serializers.ModelSerializer):
 
     def get_period(self, obj):
         return obj.get_period_display()
-    
+
+
+class ListStudentsCousesSerializer(serializers.ModelSerializer):
+    student_name = serializers.ReadOnlyField(source='student.name')
+
+    class Meta:
+        model = Registration
+        fields = ['student_name', 'period']
