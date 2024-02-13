@@ -22,7 +22,13 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
 
 class ListRegistrationStudentsSerializer(serializers.ModelSerializer):
+    course = serializers.ReadOnlyField(source='course.description')
+    period = serializers.SerializerMethodField()
+
     class Meta:
         model = Registration
         fields = ['course', 'period']
-        depth = 1
+
+    def get_period(self, obj):
+        return obj.get_period_display()
+    
